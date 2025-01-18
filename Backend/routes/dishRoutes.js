@@ -9,7 +9,7 @@ const {
 } = require('../controllers/dishController');
 
 // Route to create a dish
-router.post('/dishes', createDish);
+router.post('/add_dish', createDish);
 
 // Route to get all dishes
 router.get('/dishes', getAllDishes);
@@ -18,9 +18,9 @@ router.get('/dishes', getAllDishes);
 router.get('/dishes/:id', getDishById);
 
 // Route to update a dish by ID
-router.put('/dishes/:id', updateDish);
+router.put('/update_dish/:id', updateDish);
 
 // Route to delete a dish by ID
-router.delete('/dishes/:id', deleteDish);
+router.delete('/delete_dish/:id', deleteDish);
 
 module.exports = router;
