@@ -1,53 +1,47 @@
-import React, { useState } from 'react';
-import QRScanner from './components/QRScanner';
-import DishCard from './components/DishCard';
-import './App.css';
+import React, { useState } from "react";
+import QrScanner from "./components/QRScanner";
+
 
 const App = () => {
-  const [dishData, setDishData] = useState(null);
+  const [isScannerActive, setIsScannerActive] = useState(false); // Controls scanner visibility
+  const [scannedData, setScannedData] = useState(""); // Stores scanned data
 
-  // Handle the QR scan result
-  const handleQRScan = (data) => {
-    try {
-      const parsedData = JSON.parse(data);
-      fetchItemCalories(parsedData);  // Fetch item calorie data from the server
-    } catch (error) {
-      console.error('Invalid QR Code', error);
-    }
-  };
-
-  // Fetch calorie data for the scanned dish items
-  const fetchItemCalories = async (data) => {
-    try {
-      // You can replace this mock data with an actual API call to your backend
-      const items = [
-        { name: 'Idli', calories: 100 },
-        { name: 'Vada', calories: 200 },
-        { name: 'Sambhar', calories: 120 },
-        { name: 'Chutney', calories: 80 }
-      ];
-
-      const updatedItems = data.items.map((item) => {
-        const calorieItem = items.find((i) => i.name === item.name);
-        return { ...item, calories: calorieItem ? calorieItem.calories : 0 };
-      });
-
-      setDishData({ ...data, items: updatedItems });
-    } catch (err) {
-      console.error('Failed to fetch item data:', err);
-    }
+  const handleScannedData = (data) => {
+    setScannedData(data); // Update parent state with scanned data
+    setIsScannerActive(false); // Close the scanner
   };
 
   return (
-    <div className="App">
-      <h1>QR Code Calorie Counter</h1>
-
-      {/* Show QR scanner if dish data is not available */}
-      {!dishData ? (
-        <QRScanner onScan={handleQRScan} />
-      ) : (
-        <DishCard dishData={dishData} />
+    <div>
+      <h1>QR Code Scanner App</h1>
+      {scannedData && (
+        <div>
+          <h2>Scanned Data:</h2>
+          <p>{scannedData}</p>
+        </div>
       )}
+      {isScannerActive && (
+        <QrScanner onScanComplete={handleScannedData} />
+      )}
+      <button
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          backgroundColor: "#007bff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: "60px",
+          height: "60px",
+          fontSize: "20px",
+          cursor: "pointer",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        }}
+        onClick={() => setIsScannerActive(true)}
+      >
+        Scan
+      </button>
     </div>
   );
 };

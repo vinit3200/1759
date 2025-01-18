@@ -1,34 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { BrowserMultiFormatReader } from '@zxing/library';
+import React, { useState } from "react";
+import { QrReader } from "react-qr-reader";
 
-const QRScanner = ({ onScan }) => {
-  const [error, setError] = useState(null);
-  const videoRef = useRef(null);
-  const codeReader = useRef(new BrowserMultiFormatReader());
+const QrScanner = ({ onScanComplete }) => {
+  const [lastError, setLastError] = useState(null);
 
-  useEffect(() => {
-    const startScanning = async () => {
-      try {
-        const videoInputDevices = await codeReader.current.listVideoInputDevices();
-        const selectedDeviceId = videoInputDevices[0].deviceId;
-        codeReader.current.decodeFromVideoDevice(selectedDeviceId, videoRef.current, (result, err) => {
-          if (result) onScan(result.getText());
-          if (err) setError(err);
-        });
-      } catch (err) {
-        setError('Error starting scanner');
-      }
-    };
-    startScanning();
-    return () => { codeReader.current.reset(); };
-  }, [onScan]);
+  const handleScan = (result) => {
+    if (result && result.text) {
+      onScanComplete(result.text); // Pass the scanned data to the parent
+    }
+  };
+
+  const handleError = (error) => {
+    if (error && error.message !== lastError) {
+      setLastError(error.message); // Log unique errors
+      console.warn("QR Scanner Error:", error.message);
+    }
+  };
 
   return (
-    <div>
-      <video ref={videoRef} width="100%" />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1000,
+      }}
+    >
+      <div style={{ width: "90%", maxWidth: "400px", borderRadius: "8px", overflow: "hidden" }}>
+        <QrReader
+          onResult={(result, error) => {
+            if (result) handleScan(result);
+            if (error) handleError(error);
+          }}
+          style={{ width: "100%" }}
+        />
+      </div>
     </div>
   );
 };
 
-export default QRScanner;
+export default QrScanner;
