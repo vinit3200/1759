@@ -1,0 +1,114 @@
+.dish-page {
+    font-family: "Arial", sans-serif;
+    color: #333;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dish-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .dish-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+  }
+  
+  .dish-description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+  }
+  
+  .dish-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .calories-overview {
+    text-align: center;
+  }
+  
+  .calories-overview h2 {
+    font-size: 1.5rem;
+    color: #2980b9;
+  }
+  
+  .calories {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  .ingredients-section {
+    background: #ecf0f1;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .ingredients-section h2 {
+    font-size: 1.5rem;
+    color: #2980b9;
+    margin-bottom: 20px;
+  }
+  
+  .ingredient-item {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .ingredient-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .ingredient-name {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .ingredient-calories {
+    color: #e67e22;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .slider-container input[type="range"] {
+    flex-grow: 1;
+  }
+  
+  .slider-quantity {
+    font-weight: bold;
+    color: #2980b9;
+  }
+
+  .imgcont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dishImage{
+    justify-content:center;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  

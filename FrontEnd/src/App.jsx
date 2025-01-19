@@ -1,48 +1,28 @@
-import React, { useState } from "react";
-import QrScanner from "./components/QRScanner";
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
+import AdminPanel from "./components/AdminPanel";
+import DishPage from "./components/DishPage";
+import Home from "./components/Home";
+import LoginPage from "./components/LoginPage"; // Import the LoginPage component
+import AddDishModal from "./components/AddDishModal";
 
 const App = () => {
-  const [isScannerActive, setIsScannerActive] = useState(false); // Controls scanner visibility
-  const [scannedData, setScannedData] = useState(""); // Stores scanned data
-
-  const handleScannedData = (data) => {
-    setScannedData(data); // Update parent state with scanned data
-    setIsScannerActive(false); // Close the scanner
-  };
-
   return (
-    <div>
-      <h1>QR Code Scanner App</h1>
-      {scannedData && (
-        <div>
-          <h2>Scanned Data:</h2>
-          <p>{scannedData}</p>
-        </div>
-      )}
-      {isScannerActive && (
-        <QrScanner onScanComplete={handleScannedData} />
-      )}
-      <button
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          backgroundColor: "#007bff",
-          color: "#fff",
-          border: "none",
-          borderRadius: "50%",
-          width: "60px",
-          height: "60px",
-          fontSize: "20px",
-          cursor: "pointer",
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-        }}
-        onClick={() => setIsScannerActive(true)}
-      >
-        Scan
-      </button>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="app-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} /> {/* Login route */}
+          <Route path="/add-sih" element={<AddDishModal />} /> {/* Login route */}
+          <Route path="/admin" element={<AdminPanel />} /> {/* Admin Panel route */}
+          <Route path="/dish/:id" element={<DishPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

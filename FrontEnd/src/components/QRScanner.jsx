@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { QrReader } from "react-qr-reader";
 
-const QrScanner = ({ onScanComplete }) => {
+const QrScanner = ({ onDataStore, onClose }) => {
   const [lastError, setLastError] = useState(null);
+  const [isScanning, setIsScanning] = useState(true); // Flag to manage scanning state
+
+  // Cleanup the scanner when the component is unmounted
+  useEffect(() => {
+    return () => {
+      setIsScanning(false); // Stop scanning when component is unmounted
+    };
+  }, []);
 
   const handleScan = (result) => {
-    if (result && result.text) {
-      onScanComplete(result.text); // Pass the scanned data to the parent
+    if (isScanning && result?.text) {
+      setIsScanning(false); // Stop scanning after the first result
+      onDataStore(result.text); // Store scanned data in parent
+      onClose(); // Close the scanner after a successful scan
     }
   };
 
   const handleError = (error) => {
     if (error && error.message !== lastError) {
-      setLastError(error.message); // Log unique errors
+      setLastError(error.message);
       console.warn("QR Scanner Error:", error.message);
     }
   };
@@ -33,6 +43,21 @@ const QrScanner = ({ onScanComplete }) => {
       }}
     >
       <div style={{ width: "90%", maxWidth: "400px", borderRadius: "8px", overflow: "hidden" }}>
+        {lastError && (
+          <div
+            style={{
+              position: "absolute",
+              top: 10,
+              left: 10,
+              color: "white",
+              backgroundColor: "red",
+              padding: "10px",
+              borderRadius: "5px",
+            }}
+          >
+            Error: {lastError}
+          </div>
+        )}
         <QrReader
           onResult={(result, error) => {
             if (result) handleScan(result);
