@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h1>Food Tracker</h1>
+        <h1> Healthy Eats</h1>
       </div>
       <ul className="navbar-links">
         <li>

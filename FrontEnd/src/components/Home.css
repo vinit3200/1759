@@ -1,0 +1,122 @@
+/* Global Styles */
+body {
+    background-image: url('https://www.shutterstock.com/image-photo/calories-counting-diet-food-control-600nw-1802971861.jpg'); /* Replace with your image URL or path */
+    background-size: cover; /* Ensure the image covers the entire screen */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Make the background fixed when scrolling */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make sure the body takes full viewport height */
+    font-family: 'Roboto', sans-serif; /* Use a clean and modern font */
+    color: #333; /* Dark text color for readability */
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif; /* Use a different font for headings */
+    font-weight: 600; /* Slightly bold headings */
+    color: #2c3e50; /* Darker color for headings */
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  h2, h3 {
+    font-size: 1.6rem;
+  }
+  
+  /* Flex Section */
+  .flex-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  /* Flex Card Styling */
+  .flex-card {
+    background-color: #2980b9;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(45% - 20px);
+    max-width: calc(45% - 20px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .flex-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  }
+  
+  .flex-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #fff;
+    text-transform: uppercase; /* Capitalize card titles */
+  }
+  
+  .flex-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #f1f1f1; /* Lighter text for paragraphs */
+    text-align: justify; /* Justified text for better alignment */
+  }
+  
+  @media (max-width: 768px) {
+    .flex-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+  
+  /* Main Container */
+  .home-container {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  /* Button Styling */
+  .scan-button {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    font-size: 18px;
+    padding: 12px 30px; /* Slightly larger padding for the button */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for better UX */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-weight: 500; /* Medium font weight */
+  }
+  
+  /* Hover effect */
+  .scan-button:hover {
+    background-color: #122c13; /* Slightly darker green */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow for hover */
+    transform: translateY(-3px); /* Lift the button slightly */
+  }
+  
+  /* Active effect */
+  .scan-button:active {
+    background-color: #3e8e41; /* Even darker green for click effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow on click */
+    transform: translateY(0); /* Reset lift effect */
+  }
+  
+  /* Add styling for the modal and form inputs as needed */
+  .modal input, .modal textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal input:focus, .modal textarea:focus {
+    outline: none;
+    border-color: #2980b9; /* Focus border color */
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5); /* Slight focus shadow */
+  }
+  
+  
