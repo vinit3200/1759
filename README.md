@@ -53,13 +53,13 @@ This project is a React-based web application that scans a QR code representing 
    npm install
 
 3. **Set up environment variables in a .env file**
-- MONGO_URI=<your_mongodb_connection_string>
-- PORT=5001
+   ```bash
+   MONGO_URI=<your_mongodb_connection_string>
+   PORT=5001
 
 4. **Start the server**
    ```bash
    npm run dev
-
 
 ### Frontend Setup
 
@@ -74,7 +74,6 @@ This project is a React-based web application that scans a QR code representing 
 4. **Start the server**
    ```bash
    npm run dev
-
 
 ## Access the Application
 
