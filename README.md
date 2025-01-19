@@ -49,14 +49,16 @@ This project is a React-based web application that scans a QR code representing 
    cd backend
 
 2. **Install dependencies**
-- npm install
+   ```bash
+   npm install
 
 3. **Set up environment variables in a .env file**
 - MONGO_URI=<your_mongodb_connection_string>
 - PORT=5001
 
 4. **Start the server**
-   -npm run dev
+   ```bash
+   npm run dev
 
 
 ### Frontend Setup
@@ -66,20 +68,22 @@ This project is a React-based web application that scans a QR code representing 
    cd ../backend
 
 2. **Install dependencies**
-- npm install
+   ```bash
+   npm install
 
-3. **Start the server**
-   -npm run dev
+4. **Start the server**
+   ```bash
+   npm run dev
 
 
 ## Access the Application
 
-Frontend: http://localhost:3000
-Backend: http://localhost:5001
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5001
 
 ## Deployment
-Frontend: Deployed on Netlify [click here](https://jovial-stardust-c3870e.netlify.app).
-Backend: Deployed on Render/Heroku [click here](https://foodapp-lq4i.onrender.com/api/dishes).
+- Frontend: Deployed on Netlify [click here](https://jovial-stardust-c3870e.netlify.app).
+- Backend: Deployed on Render/Heroku [click here](https://foodapp-lq4i.onrender.com/api/dishes).
 
 ## Group Presentation
 A 7–10 minute video covering the app's functionality and technical details is available [here]()
