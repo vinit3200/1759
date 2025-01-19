@@ -59,7 +59,7 @@ This project is a React-based web application that scans a QR code representing 
 
 4. **Start the server**
    ```bash
-   npm run dev
+   node server.js
 
 ### Frontend Setup
 
