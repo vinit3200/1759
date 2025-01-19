@@ -1,42 +1,198 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* App.css */
+
+/* Apply background image for the entire app */
+body {
+  background-image: url('https://www.shutterstock.com/image-photo/calories-counting-diet-food-control-600nw-1802971861.jpg'); /* Replace with your image URL or path */
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Make the background fixed when scrolling */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make sure the body takes full viewport height */
+}
+
+/* Container for the app */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  color: white; /* White text color */
+  font-family: Arial, sans-serif;
+  padding-top: 80px; /* Adjust space for the fixed navbar */
+  width: 100%; /* Ensure full width */
+}
+
+/* Navbar Styles */
+.navbar {
+  width: 100%;
+  position: fixed; /* Make the navbar fixed at the top */
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 15px 20px; /* Top, Right, Bottom, Left padding */
+  background-color: rgba(0, 111, 142, 0.8); /* Darker blue with transparency */
+  z-index: 1000; /* Ensure the navbar stays on top of other content */
+}
+
+/* Logo Styling */
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding-right: 50px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 30px;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.scanned-data {
+  margin-top: 20px;
+}
+
+.scan-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: white;
+  color: #0099cc;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.scan-button:hover {
+  background-color: #1b3139; /* Light blue on hover */
+}
+
+/* Food Information Section Grid */
+.food-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+  gap: 60px; /* Space between columns */
+  padding: 60px ;
+  width: 85%;
+  height: 80%;
+}
+
+.food-item {
+  background-color: rgba(0, 111, 142, 0.8); /* Background color for each item */
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+.food-item h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.food-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.modal-overlay {
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .scan-button {
+    padding: 10px 20px;
+    font-size: 16px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  /* Stack food info on smaller screens */
+  .food-info {
+    grid-template-columns: 1fr; /* Stack the items in a single column */
   }
-}
 
-.card {
-  padding: 2em;
-}
+  /* Adjust food item padding and font size */
+  .food-item {
+    padding: 12px;
+  }
 
-.read-the-docs {
-  color: #888;
+  .food-item h2 {
+    font-size: 1.2rem;
+  }
+
+  .food-item p {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+  }
+
+  /* Adjust button size on mobile */
+  .scan-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
