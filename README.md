@@ -85,7 +85,7 @@ This project is a React-based web application that scans a QR code representing 
 - Backend: Deployed on Render/Heroku [click here](https://foodapp-lq4i.onrender.com/api/dishes).
 
 ## Group Presentation
-A 7–10 minute video covering the app's functionality and technical details is available [here]()
+A 7–10 minute video covering the app's functionality and technical details is available [here](https://drive.google.com/file/d/1a6mh8RplEl0PgNKn_tT426Ctm677b0Tv/view?usp=sharing)
 
 ## Contributors
 
